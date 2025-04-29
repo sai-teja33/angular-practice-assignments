@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>{{ title }}</h1>
+  
+    <app-add-student 
+      [existingStudent]="newStudent"
+      (studentAdded)="addNewStudent($event)">
+      
+      <!-- Project content into AddStudentComponent -->
+      <div class="student-title">
+        <h3>Student Form</h3>  <!-- This content will be projected into the ng-content with select=".student-title" -->
+      </div>
+    </app-add-student>
+
+  
+    <h2>List of Students:</h2>
+    <ul>
+      <li *ngFor="let student of students">
+        {{ student.name }} ({{ student.age }} years old) - {{ student.course }}
+      </li>
+    </ul>
+  </div>
+  

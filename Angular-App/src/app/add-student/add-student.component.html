@@ -1,0 +1,14 @@
+<div class="add-student-form">
+    <h2>Add New Student</h2>
+    
+    <!-- ng-content with select property to project specific content -->
+    <ng-content select=".student-title"></ng-content> <!-- Content with class 'student-title' -->
+  
+    <input type="text" [(ngModel)]="name" placeholder="Name">
+    <input type="number" [(ngModel)]="age" placeholder="Age">
+    <input type="text" [(ngModel)]="course" placeholder="Course">
+    <button (click)="addStudent()">Add Student</button>
+  
+   
+  </div>
+  

@@ -1,0 +1,12 @@
+<p>CurrentValue:{{currentValue}}</p>
+
+<p>PreviousValue:{{previousValue}}</p>
+
+<div *ngFor="let product of products">
+    <ul>{{product.id}}</ul>
+    <ul>{{product.name}}</ul>
+
+</div>
+<ng-content></ng-content>
+<button #btn type="button">Click me</button>
+<button (click)="onCounterChange()">Click here {{counter}}</button>

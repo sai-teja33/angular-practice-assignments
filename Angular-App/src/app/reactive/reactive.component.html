@@ -1,0 +1,76 @@
+<div class="container">
+    <h2>Reactive Form</h2>
+   
+    <!--Reactive Form-->
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <label for="firstName">First Name:</label>
+      <input id="firstName" formControlName="firstName" />
+      <div *ngIf="userForm.controls['firstName'].invalid && userForm.controls['firstName'].touched">
+        <small>First Name is required</small>
+      </div>
+   
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" formControlName="lastName" />
+      <div *ngIf="userForm.controls['lastName'].invalid && userForm.controls['lastName'].touched">
+        <small>Last Name is required</small>
+      </div>
+   
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" />
+      <div *ngIf="userForm.controls['email'].invalid && userForm.controls['email'].touched">
+
+        <small>Valid Email is required</small>
+      </div>
+   
+      <label for="age">Age:</label>
+      <input id="age" formControlName="age" type="number" />
+      <div *ngIf="userForm.controls['age'].invalid && userForm.controls['age'].touched">
+        <small>Age is required (min: 1)</small>
+      </div>
+   
+      <label>Hobbies:</label>
+      <div formArrayName="hobbies">
+        <div *ngFor="let hobby of hobbies.controls; let i = index">
+          <input [formControlName]="i" placeholder="Enter Hobby" />
+          <div *ngIf="hobby.invalid && hobby.touched">
+            <small>Hobby is required</small>
+          </div>
+          <button type="button" (click)="removeHobby(i)" class="remove-hobby-btn">Remove</button>
+        </div>
+      </div>
+      <button type="button" (click)="addHobby()" class="add-hobby-btn">Add Hobby</button>
+      <br>
+      <button type="submit" [disabled]="userForm.invalid">Submit</button>
+      <br>
+      <button type="button" (click)="onReset()" class="reset-btn">Reset</button>
+    </form>
+   
+    <!--Saved Users List-->
+    <h3>Saved Users: {{ savedUsers.length }}</h3>
+    <ul *ngIf="savedUsers.length > 0; else noUsers">
+      <li *ngFor="let user of savedUsers; let i=index">
+        <strong>Main Details:</strong> {{ user.firstName }} {{ user.lastName }} ({{ user.email }}, Age: {{ user.age }})
+        <br>
+        <strong>Hobbies:</strong> {{ user.hobbies.length > 0 ? user.hobbies.join(', ') : 'No hobbies added' }}
+        <button (click)="removeSavedUser(i)" class="remove-hobby-btn">Remove</button>
+      </li>
+    </ul>
+   
+    <!--Message when no users are saved-->
+    <div>
+      <ng-template #noUsers>
+        <p>No users saved yet.</p>
+      </ng-template>
+    </div>
+   
+    <!--"Clear All" Button-->
+    <button *ngIf="savedUsers.length > 0" (click)="onClearAll()" class="clear-btn">
+      Clear All
+    </button>
+   
+    <!--Notification-->
+    <div *ngIf="notification" class="notification">
+      {{ notification }}
+    </div>
+  </div>
+  <router-outlet></router-outlet>

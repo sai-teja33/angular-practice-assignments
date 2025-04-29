@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="box-wrapper">
+<div  class="box" *ngIf="isDiv1visible" [ngClass]="div1color" >Div1  </div>
+<button (click)="showDiv1()" >Show</button>
+<button (click)="hideDiv1()" >Hide</button>
+<button (click)="tored()">Add Red</button>
+<button (click)="togreen()" >Add Green</button>
+</div>
+<div class="box-wrapper">
+<div class="box" *ngIf="isDiv2visible"  [ngClass]="isActive?'red':'green'"  >Div2    </div>
+<button (click)="toggle()">Hide/Show</button>
+<button (click)="colorchange()" >Change Color</button>
+</div>
+<div class="box-wrapper">
+<div *ngIf="num1==num2" class="box"  [ngStyle]="properties"  >Div3</div>
+<input type="text" [(ngModel)]="num1"  placeholder="type num1 here"> 
+<input type="text" [(ngModel)]="num2"   placeholder="type num2 here"> 
+</div>
+</div>
+
+<br>
+<h3 style="text-align: center;background-color:yellow;">*ngFor</h3>
+<ul>
+    <li *ngFor="let name of names " >{{name}}</li>
+</ul>
+<h5>Select your name</h5>
+<select>
+    <option *ngFor="let name of names" >{{name}}</option>
+</select>
+<br>
+<h3 style="text-align: center; background-color: lightblue;">*ngSwitch Example</h3>
+
+<select [(ngModel)]="selectedColor">
+  <option value="">-- Choose a color --</option>
+  <option value="red">Red</option>
+  <option value="green">Green</option>
+  <option value="blue">Blue</option>
+</select>
+
+<div [ngSwitch]="selectedColor" >
+  <div *ngSwitchCase="'red'" style="color: red;">You picked Red!</div>
+  <div *ngSwitchCase="'green'" style="color: green;">You picked Green!</div>
+  <div *ngSwitchCase="'blue'" style="color: blue;">You picked Blue!</div>
+  <div *ngSwitchDefault style="color: gray;">No color selected.</div>
+</div>
+
+<br>
+<h5>Select student </h5>
+<select>
+    <option *ngFor="let student of studentinfo" [value]="student.ID" >{{student.name}}</option>
+</select>

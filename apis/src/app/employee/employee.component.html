@@ -1,0 +1,42 @@
+<h2>Employee Management</h2>
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <input formControlName="id" placeholder="id">
+  <input formControlName="name" placeholder="name">
+  <input formControlName="age" placeholder="age">
+  <input formControlName="sex" placeholder="sex">
+  <input formControlName="location" placeholder="location">
+  <input formControlName="company" placeholder="company">
+  <button type="submit">{{isEdit?"Update":"Add"}}Employee</button>
+  <button type="button" (click)="resetForm()">Clear</button>
+  <button type="button" (click)="loadEmployees()">Get Employees List</button>
+</form>
+<div *ngIf="alertMsg">{{alertMsg}}</div>
+
+<h3>Employee List</h3>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Location</th>
+      <th>Company</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.age}}</td>
+      <td>{{employee.sex}}</td>
+      <td>{{employee.location}}</td>
+      <td>{{employee.company}}</td>
+      <td>
+        <button (click)="onEdit(employee)">Edit</button>
+        <button (click)="onDelete(employee.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button (clcik)="onDeleteAll()">Delete All Employees</button>

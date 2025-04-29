@@ -1,0 +1,23 @@
+<!-- Title for the Get Request -->
+<p><strong>Get Request</strong></p>
+
+<!-- Button to trigger the GET request -->
+<button (click)="getPeople()">Get Person Details</button>
+
+<!-- Display list of people retrieved -->
+<div *ngFor="let p of people">
+  <p><strong>ID:</strong> {{ p.id }}</p>
+  <p><strong>Name:</strong> {{ p.name }}</p>
+</div>
+
+<!-- Form to input new person details -->
+<div>
+  <label for="id">Enter ID:</label>
+  <input type="text" id="id" [(ngModel)]="person.id" />
+
+  <label for="name">Enter Name:</label>
+  <input type="text" id="name" [(ngModel)]="person.name" />
+</div>
+
+<!-- Button to trigger the Add Person action -->
+<button (click)="addPerson()">Add Person</button>

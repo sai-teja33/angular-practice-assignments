@@ -1,0 +1,11 @@
+
+.account-manage{
+    width: 60%;
+    background-color: aqua;
+    float: left;
+}
+.transaction-manage{
+    width: 40%;
+    background-color: cadetblue;
+    float: left;
+}

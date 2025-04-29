@@ -1,0 +1,77 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+    <div>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" #firstnamectrl="ngModel" required [(ngModel)]="contact.firstname" >
+    </div>
+    <div *ngIf="(firstnamectrl.touched || firstnamectrl.dirty) && firstnamectrl.invalid">
+        <small *ngIf="firstnamectrl.errors?.['required']">First Name is required.</small>
+      </div>
+    <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" #lastnamectrl="ngModel"  maxlength="15"  required [(ngModel)]="contact.lastname" >
+    </div>
+    <div *ngIf="(lastnamectrl.touched || lastnamectrl.dirty) && lastnamectrl.invalid">
+        <small *ngIf="lastnamectrl.errors?.['required']">Lastname is required</small>
+        
+        <small *ngIf="lastnamectrl.errors?.['minlength']">Minimum 3 chars required</small>
+        
+
+      </div>
+      
+    <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" #emailctrl="ngModel" email required [(ngModel)]="contact.email" >
+    </div>
+    <div *ngIf="(emailctrl.touched ||emailctrl.dirty) && emailctrl.invalid">
+        <small *ngIf="emailctrl.errors?.['required']">Email is required</small>
+        <small *ngIf="emailctrl.errors?.['email']">Enter valid email</small>
+    </div>
+    <div>
+        <label for="pwd">Password</label>
+        <input type="password" id="pwd" name="pwd" #pwdctrl="ngModel"  required [(ngModel)]="contact.password" pattern="^[a-zA-Z]+$" >
+    </div>
+    <div *ngIf="(pwdctrl.touched ||pwdctrl.dirty)&& pwdctrl.invalid">
+        <small *ngIf="pwdctrl.errors?.['required']">Pass is required</small>
+        <small *ngIf="pwdctrl.errors?.['pattern']">Enter only alphabets</small>
+    </div>
+    <div>
+        <label >Gender</label>
+        <input type="radio" value="male"  name="gender" [(ngModel)]="contact.gender"  >Male
+        <input type="radio" value="female"  name="gender" [(ngModel)]="contact.gender"  > Female
+    </div>
+   <div>
+    <label for="isMarried">Married</label>
+    <input type="checkbox" id="isMarried" name="isMarried" [(ngModel)]="contact.firstname" >
+   </div>
+   <div>
+    <label for="country">Country</label>
+    <select name="country" id="country" ngModel>
+        <option selected="" value=""></option>
+        <option *ngFor="let country of countryList">
+            {{country}}
+        </option>
+    </select>
+   </div>
+   <div ngModelGroup="address">
+   <div>
+    <label for="city">City</label>
+    <input type="text" name="city" ngModel>
+   </div>
+   <div>
+    <label for="state">State</label>
+    <input type="text" name="state" ngModel>
+   </div>
+   <div>
+    <label for="pincode">Pincode</label>
+    <input type="text" name="pincode" ngModel>
+   </div>
+</div>
+   <div>
+    <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+    <button type="button" (click)="onReset(contactForm)">Reset</button>
+   </div>
+   <p>Value:{{contactForm.value|json}}</p>
+   <p>Valid:{{contactForm.valid}}</p>
+   <p>Touched:{{contactForm.touched}}</p>
+   <p>Submitted:{{contactForm.submitted}}</p>
+</form>

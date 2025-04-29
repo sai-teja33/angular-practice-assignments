@@ -1,0 +1,11 @@
+<div class="account-management">
+  <h2>Account Management</h2>
+  <div class="account-card" *ngFor="let account of accounts" (click)="selectAccount(account)">
+      <div class="card-header">
+          <strong >{{ account.name }}</strong>
+      </div>
+      <div class="card-body">
+          <p>Balance: {{ account.balance | currency }}</p>
+      </div>
+  </div>
+</div>

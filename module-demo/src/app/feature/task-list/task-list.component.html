@@ -1,0 +1,12 @@
+<h2>Task Manager</h2>
+
+<!-- Input field to add a new task -->
+<div>
+  <input [(ngModel)]="newTask" placeholder="Enter new task..." />
+  <button (click)="addTask()">Add Task</button>
+</div>
+
+<!-- Display the list of tasks -->
+<div *ngFor="let task of tasks">
+  <app-task-item [task]="task" (delete)="deleteTask(task.id)"></app-task-item>
+</div>

@@ -1,0 +1,47 @@
+<form  [formGroup]="studentForm">
+    <div>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" formControlName="firstName" >
+    </div>
+    <div *ngIf="studentForm.controls['firstName'].invalid && studentForm.controls['firstName'].touched">
+        <small *ngIf="studentForm.controls['firstName'].errors?.['required']">This is required</small>
+        <small *ngIf="studentForm.controls['firstName'].errors?.['minlength']">Min 3 chars required</small>
+    </div>
+    <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" formControlName="lastName">
+    </div>
+    <div *ngIf="studentForm.controls['lastName'].invalid && studentForm.controls['lastName'].touched">
+        <small *ngIf="studentForm.controls['lastName'].errors?.['required']">This is required</small>
+        <small *ngIf="studentForm.controls['lastName'].errors?.['maxlength']">Max 5 chars allowed</small>
+
+    </div>
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username">
+    </div>
+    <div *ngIf="studentForm.controls['username'].invalid && studentForm.controls['username'].touched">
+        <small *ngIf="studentForm.controls['username'].errors?.['required']" >This is required</small>
+        <small *ngIf="studentForm.controls['username'].errors?.['email']" >Enter valid username</small>
+    </div>
+    <div formGroupName="address">
+        <label for="street">Street:</label>
+        <input type="text" id="street" formControlName="street">
+        <label for="city">city:</label>
+        <input type="text" id="city" formControlName="city">
+        <label for="zipcode">zipcode:</label>
+        <input type="text" id="zipcode" formControlName="zipcode">
+    </div>
+    <div>
+        <label for="accept">Accept T&C:</label>
+        <input type="checkbox" id="accept" formControlName="isAccept">
+    </div>
+    <div>
+        <button [disabled]="studentForm.invalid" (click)="onSubmit()">Submit</button>
+         <button (click)="updateavalue()">Update a value(Patch)</button>
+         <button (click)="updateallvalues()">Update all value(Set Value)</button>
+    </div>
+    <div>
+        <p>{{formValue|json}}</p>
+    </div>
+</form>

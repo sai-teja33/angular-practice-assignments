@@ -1,0 +1,76 @@
+{
+  "employees": [
+    {
+      "id": "3",
+      "name": "Liam Smith",
+      "age": 41,
+      "sex": "Male",
+      "location": "London",
+      "company": "CloudCore"
+    },
+    {
+      "id": "4",
+      "name": "Sophia Lee",
+      "age": 26,
+      "sex": "Female",
+      "location": "Seoul",
+      "company": "SkyNet AI"
+    },
+    {
+      "id": "5",
+      "name": "Carlos Mendez",
+      "age": 38,
+      "sex": "Male",
+      "location": "Mexico City",
+      "company": "DataWave"
+    },
+    {
+      "id": "6",
+      "name": "Emma Wilson",
+      "age": 31,
+      "sex": "Female",
+      "location": "Sydney",
+      "company": "GreenByte"
+    },
+    {
+      "id": "7",
+      "name": "nama Sai Teja",
+      "age": "21",
+      "sex": "Male",
+      "location": "Hyderabd",
+      "company": "hitachi"
+    },
+    {
+      "id": "0",
+      "name": "",
+      "age": 0,
+      "sex": "",
+      "location": "",
+      "company": ""
+    },
+    {
+      "id": "7",
+      "name": "nama Sai Teja",
+      "age": "21",
+      "sex": "Male",
+      "location": "Hyd",
+      "company": "hitachi"
+    },
+    {
+      "id": "7",
+      "name": "nama Sai Teja",
+      "age": "21",
+      "sex": "Male",
+      "location": "Hyd",
+      "company": "hitachi"
+    },
+    {
+      "id": "7",
+      "name": "nama Sai Teja",
+      "age": "21",
+      "sex": "Male",
+      "location": "Hyd",
+      "company": "hitachi"
+    }
+  ]
+}

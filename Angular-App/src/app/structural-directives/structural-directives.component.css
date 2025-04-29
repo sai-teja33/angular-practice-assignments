@@ -1,0 +1,23 @@
+.box{
+    height: 200px;
+    width: 200px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.box-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.red{
+    background-color: red;
+}
+.green{
+    background-color: green;
+}

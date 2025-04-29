@@ -1,0 +1,21 @@
+<nav class="navbar">
+  <ul class="navbar-links">
+    <li><a routerLink="/electronics" [queryParams]="{'category':'Mobiles'}" routerLinkActive="active">Mobiles</a></li>
+    <li><a routerLink="/electronics" [queryParams]="{'category':'Laptops'}" routerLinkActive="active">Laptops</a></li>
+    <li><a routerLink="/electronics" [queryParams]="{'category':'TVs'}" routerLinkActive="active">TV</a></li>
+    <li><a routerLink="/latest">Latest Arrivals</a></li>
+    <li><a routerLink="/editprice">Edit User</a></li>
+    <button (click)="logoff()">Logout</button>
+  </ul>
+</nav>
+
+
+<div class="products-container">
+    <div *ngFor="let product of products" class="product-card">
+      <p class="product-name">{{ product.name }}</p>
+      <img  class="product-image" [src]="product.image">
+      <a [routerLink]="['/electroniccard',product.id]">View Details</a>
+    </div>
+  </div>
+
+  

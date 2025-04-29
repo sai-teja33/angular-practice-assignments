@@ -1,0 +1,26 @@
+h1{
+    text-align: center;
+    background-color:bisque;
+    font-weight: bold;
+}
+p {
+    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  .shop-link {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .shop-link:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }

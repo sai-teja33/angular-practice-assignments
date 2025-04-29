@@ -1,0 +1,27 @@
+<div class="profile-container">
+    <h1>User Profile</h1>
+  
+     <!-- String Interpolation: Displaying user's name and email   -->
+    <div>
+      <h2>{{ user.name }}</h2>
+      <p>Email: {{ user.email }}</p>
+    </div>
+  
+    <!-- Property Binding: Displaying user's profile picture   -->
+    <div>
+      <img [src]="user.profilePicture" alt="User Profile Picture">
+    </div>
+  
+      <!-- Two-Way Binding: Allow user to update name and email   -->
+    <div>
+      <label for="name">Update Name:</label>
+      <input id="name" [(ngModel)]="user.name" type="text">
+  
+      <label for="email">Update Email:</label>
+      <input id="email" [(ngModel)]="user.email" type="email">
+    </div>
+  
+     <!-- Event Binding: Save button to handle profile save   -->
+    <button (click)="saveProfile()">Save Profile</button>
+  </div>
+  
